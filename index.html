@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="description" content="PULSO: rutinas, ejercicios y progreso, a tu ritmo.">
+  <title>PULSO · Entrená a tu ritmo</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2.50.0/dist/umd/supabase.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#inicio"><img src="assets/logo.svg" alt="" width="42" height="42"><span>PULSO<small>ENTRENÁ A TU RITMO</small></span></a>
+      <p class="nav-label">TU ESPACIO</p>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#inicio" data-nav="inicio"><span>◫</span> Inicio</a>
+        <a href="#rutinas" data-nav="rutinas"><span>▦</span> Rutinas</a>
+        <a href="#entrenar" data-nav="entrenar"><span>◉</span> Entrenar</a>
+        <a href="#ejercicios" data-nav="ejercicios"><span>◈</span> Ejercicios</a>
+        <a href="#progreso" data-nav="progreso"><span>↗</span> Progreso</a>
+        <a href="#nutricion" data-nav="nutricion"><span>✦</span> Nutrición e IMC</a>
+        <a href="#comunidad" data-nav="comunidad"><span>♕</span> Comunidad</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="pulse"></span><span id="connection-label">Modo demostración</span><small>Empezá hoy. A tu ritmo.</small></div>
+    </aside>
+    <div class="main-wrap">
+      <header class="topbar"><div class="topbar-left"><button class="mobile-menu" id="menu-toggle" aria-label="Mostrar menú" aria-expanded="false">☰</button><span class="crumb">PULSO / <b id="section-name">Inicio</b></span></div><div class="topbar-right"><span id="mode-badge" class="mode-badge">DEMO</span><button id="account-button" class="account-button">Iniciar sesión</button></div></header>
+      <main id="contenido" class="content" tabindex="-1">
+        <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+        <section id="page-inicio" class="page"></section>
+        <section id="page-rutinas" class="page" hidden></section>
+        <section id="page-entrenar" class="page" hidden></section>
+        <section id="page-ejercicios" class="page" hidden></section>
+        <section id="page-progreso" class="page" hidden></section>
+        <section id="page-nutricion" class="page" hidden></section>
+        <section id="page-comunidad" class="page" hidden></section>
+      </main>
+    </div>
+  </div>
+  <dialog id="auth-dialog" class="dialog"><form method="dialog" class="dialog-close"><button aria-label="Cerrar">✕</button></form><div class="modal-body"><p class="eyebrow">TU CUENTA</p><h2>Bienvenido a PULSO</h2><p class="muted">Con Supabase podés sincronizar tus entrenamientos entre dispositivos. En demo se guardan solo en este navegador.</p><form id="auth-form"><label>Correo<input id="auth-email" type="email" required autocomplete="email" placeholder="tu@email.com"></label><label>Contraseña<input id="auth-password" type="password" minlength="6" required autocomplete="current-password" placeholder="Mínimo 6 caracteres"></label><div class="flex buttons"><button type="submit" class="primary">Ingresar</button><button type="button" id="signup-btn" class="ghost">Crear cuenta</button></div></form><p id="auth-feedback" class="muted" role="status"></p></div></dialog>
+  <footer class="mobile-nav" aria-label="Accesos rápidos"><a href="#inicio">Inicio</a><a href="#rutinas">Rutinas</a><a href="#entrenar">Entrenar</a><a href="#progreso">Progreso</a><a href="#comunidad">Amigos</a></footer>
+</body>
+</html>
