@@ -72,6 +72,9 @@ alter table public.workout_sets enable row level security;
 alter table public.leaderboard_entries enable row level security;
 
 grant usage on schema public to anon,authenticated;
+-- Supabase suele otorgar permisos de tabla por defecto a anon; revocarlos explícitamente.
+revoke all on public.profiles,public.routine_plans,public.routine_exercises,public.workout_sessions,public.workout_sets,public.leaderboard_entries from anon;
+revoke insert,update,delete on public.exercises from anon;
 grant select on public.exercises to anon,authenticated;
 grant select,insert,update on public.profiles to authenticated;
 grant select,insert,update,delete on public.routine_plans,public.routine_exercises,public.workout_sessions,public.workout_sets to authenticated;
